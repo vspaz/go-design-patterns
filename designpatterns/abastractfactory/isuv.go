@@ -4,7 +4,7 @@ type ISUV interface {
 	setMake(make string)
 	getMake() string
 
-	setPriceTag(price string)
+	setPriceTag(price int)
 	getPriceTag() int
 }
 

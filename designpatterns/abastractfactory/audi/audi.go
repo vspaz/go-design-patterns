@@ -6,9 +6,19 @@ type AUDI struct {
 }
 
 func (a *AUDI) makeSedan() abastractfactory.ISedan {
-	return AudiSedan{}
+	return &audiSedan{
+		abastractfactory.Sedan{
+			Make:     "A8",
+			PriceTag: 100500,
+		},
+	}
 }
 
 func (a *AUDI) makeSUV() abastractfactory.ISUV {
-	return AudiSUV{}
+	return &AudiSUV{
+		abastractfactory.SUV{
+			Make:     "Q7",
+			PriceTag: 300500,
+		},
+	}
 }
