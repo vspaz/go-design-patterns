@@ -13,7 +13,7 @@ func TestGetCarAbstractFactoryOk(t *testing.T) {
 }
 
 func TestGetCarAbstractFactoryNotImplementedType(t *testing.T) {
-audiFactory, err := getCarAbstractFactory("tesla")
-    assert.Equal(t, nil, audiFactory)
-    assert.NotEqual(t, nil, err)
+	audiFactory, err := getCarAbstractFactory("tesla")
+	assert.Equal(t, nil, audiFactory)
+	assert.NotEqual(t, nil, err)
 }
