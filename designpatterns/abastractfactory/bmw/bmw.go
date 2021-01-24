@@ -1,22 +1,24 @@
 package bmw
 
-import "go-design-patterns/designpatterns/abastractfactory"
+import (
+	"go-design-patterns/designpatterns/abastractfactory/interfaces"
+)
 
 type BMW struct {
 }
 
-func (b *BMW) MakeSedan() abastractfactory.ISedan {
+func (b *BMW) MakeSedan() interfaces.ISedan {
 	return &bmwSedan{
-		abastractfactory.Sedan{
+		interfaces.Sedan{
 			Make:     "720i",
 			PriceTag: 90000,
 		},
 	}
 }
 
-func (b *BMW) MakeSUV() abastractfactory.ISUV {
+func (b *BMW) MakeSUV() interfaces.ISUV {
 	return &bmwSUV{
-		abastractfactory.SUV{
+		interfaces.SUV{
 			Make:     "x5",
 			PriceTag: 120000,
 		},

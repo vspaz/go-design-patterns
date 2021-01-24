@@ -1,4 +1,4 @@
-package abastractfactory
+package interfaces
 
 type ISUV interface {
 	setMake(make string)

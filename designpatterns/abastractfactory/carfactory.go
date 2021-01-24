@@ -4,11 +4,12 @@ import (
 	"fmt"
 	"go-design-patterns/designpatterns/abastractfactory/audi"
 	"go-design-patterns/designpatterns/abastractfactory/bmw"
+	"go-design-patterns/designpatterns/abastractfactory/interfaces"
 )
 
 type ICarFactory interface {
-	MakeSedan() ISedan
-	MakeSUV() ISUV
+	MakeSedan() interfaces.ISedan
+	MakeSUV() interfaces.ISUV
 }
 
 func getCarAbstractFactory(manufacturer string) (ICarFactory, error) {

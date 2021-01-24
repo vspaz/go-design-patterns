@@ -1,7 +1,9 @@
 package audi
 
-import "go-design-patterns/designpatterns/abastractfactory"
+import (
+	"go-design-patterns/designpatterns/abastractfactory/interfaces"
+)
 
 type AudiSUV struct {
-	abastractfactory.SUV
+	interfaces.SUV
 }

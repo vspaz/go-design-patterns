@@ -1,22 +1,24 @@
 package audi
 
-import "go-design-patterns/designpatterns/abastractfactory"
+import (
+	"go-design-patterns/designpatterns/abastractfactory/interfaces"
+)
 
 type AUDI struct {
 }
 
-func (a *AUDI) MakeSedan() abastractfactory.ISedan {
+func (a *AUDI) MakeSedan() interfaces.ISedan {
 	return &audiSedan{
-		abastractfactory.Sedan{
+		interfaces.Sedan{
 			Make:     "A8",
 			PriceTag: 70000,
 		},
 	}
 }
 
-func (a *AUDI) MakeSUV() abastractfactory.ISUV {
+func (a *AUDI) MakeSUV() interfaces.ISUV {
 	return &AudiSUV{
-		abastractfactory.SUV{
+		interfaces.SUV{
 			Make:     "Q7",
 			PriceTag: 900000,
 		},
