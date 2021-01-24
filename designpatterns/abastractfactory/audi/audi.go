@@ -9,7 +9,7 @@ func (a *AUDI) makeSedan() abastractfactory.ISedan {
 	return &audiSedan{
 		abastractfactory.Sedan{
 			Make:     "A8",
-			PriceTag: 100500,
+			PriceTag: 70000,
 		},
 	}
 }
@@ -18,7 +18,7 @@ func (a *AUDI) makeSUV() abastractfactory.ISUV {
 	return &AudiSUV{
 		abastractfactory.SUV{
 			Make:     "Q7",
-			PriceTag: 300500,
+			PriceTag: 900000,
 		},
 	}
 }
