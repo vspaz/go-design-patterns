@@ -5,7 +5,7 @@ import "go-design-patterns/designpatterns/abastractfactory"
 type BMW struct {
 }
 
-func (b *BMW) makeSedan() abastractfactory.ISedan {
+func (b *BMW) MakeSedan() abastractfactory.ISedan {
 	return &bmwSedan{
 		abastractfactory.Sedan{
 			Make:     "720i",
@@ -14,7 +14,7 @@ func (b *BMW) makeSedan() abastractfactory.ISedan {
 	}
 }
 
-func (b *BMW) makeSUV() abastractfactory.ISedan {
+func (b *BMW) MakeSUV() abastractfactory.ISUV {
 	return &bmwSUV{
 		abastractfactory.SUV{
 			Make:     "x5",

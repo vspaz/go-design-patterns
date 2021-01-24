@@ -5,7 +5,7 @@ import "go-design-patterns/designpatterns/abastractfactory"
 type AUDI struct {
 }
 
-func (a *AUDI) makeSedan() abastractfactory.ISedan {
+func (a *AUDI) MakeSedan() abastractfactory.ISedan {
 	return &audiSedan{
 		abastractfactory.Sedan{
 			Make:     "A8",
@@ -14,7 +14,7 @@ func (a *AUDI) makeSedan() abastractfactory.ISedan {
 	}
 }
 
-func (a *AUDI) makeSUV() abastractfactory.ISUV {
+func (a *AUDI) MakeSUV() abastractfactory.ISUV {
 	return &AudiSUV{
 		abastractfactory.SUV{
 			Make:     "Q7",
