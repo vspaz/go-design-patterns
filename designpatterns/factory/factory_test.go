@@ -7,8 +7,8 @@ import (
 
 func TestNewCarFactoryFordOK(t *testing.T) {
 	carFactory := NewCarFactory()
-	ford, _ := carFactory.getCar("FORD")
-	_, err := ford.(*FORD)
+	ford, err := carFactory.getCar("FORD")
+
 	assert.Equal(t, nil, err)
 	assert.Equal(t, &FORD{car: car{make: "", speed: 0}}, ford)
 }
