@@ -4,6 +4,7 @@ type IBuilder interface {
 	WithChasis(chasis string) IBuilder
 	WithGasEngine(isGas bool) IBuilder
 	WithElectricalMotor(isElectrical bool) IBuilder
+	WithMake(make string) IBuilder
 	Build() *Car
 }
 
@@ -16,9 +17,15 @@ func NewCar() CarBuilder {
 }
 
 type CarBuilder struct {
+	make            string
 	chasis          string
 	gasEngine       bool
 	electricalMotor bool
+}
+
+type Meta struct {
+	Year  int
+	Month string
 }
 
 type Specs struct {
@@ -30,13 +37,12 @@ type Specs struct {
 }
 
 type Car struct {
-	Escuderia string
-	Brand     string
-	Make      string
-	Specs     Specs
-	color     string
-	maxSpeed  string
-	price     float64
+	Meta     Meta
+	Specs    Specs
+	color    string
+	maxSpeed string
+	price    float64
+	Make     string
 }
 
 func (c *CarBuilder) WithChasis(chasis string) IBuilder {
@@ -54,16 +60,22 @@ func (c *CarBuilder) WithElectricalMotor(isElectrical bool) IBuilder {
 	return c
 }
 
+func (c *CarBuilder) WithMake(make string) IBuilder {
+	c.make = make
+	return c
+}
+
 func (c *CarBuilder) Build() *Car {
 	return &Car{
-		Escuderia: "Ferrari",
-		Make:      "Portofino",
-		Brand:     "Ferrari",
+		Meta: Meta{
+			Year:  2022,
+			Month: "January",
+		},
 		Specs: Specs{
 			Chasis:          c.chasis,
 			ElectricalMotor: c.electricalMotor,
-			GasEngine: c.gasEngine,
+			GasEngine:       c.gasEngine,
 		},
-		color: "red",
+		Make: c.make,
 	}
 }
