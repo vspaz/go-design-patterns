@@ -4,6 +4,7 @@ type IBuilder interface {
 	WithChasis(chasis string) IBuilder
 	WithGasEngine(isGas bool) IBuilder
 	WithElectricalMotor(isElectrical bool) IBuilder
+	Build() *Car
 }
 
 func NewCar() CarBuilder {
@@ -53,8 +54,8 @@ func (c *CarBuilder) WithElectricalMotor(isElectrical bool) IBuilder {
 	return c
 }
 
-func (c *CarBuilder) Build() Car {
-	return Car{
+func (c *CarBuilder) Build() *Car {
+	return &Car{
 		Escuderia: "Ferrari",
 		Make:      "Portofino",
 		Brand:     "Ferrari",

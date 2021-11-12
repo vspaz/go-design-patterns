@@ -1,7 +1,16 @@
 package builder
 
-import "testing"
+import (
+	"github.com/stretchr/testify/assert"
+	"testing"
+)
 
-func TestBuilder(t *testing.T) {
+func TestBuilderOk(t *testing.T) {
 	carBuilder := NewCar()
+	car := carBuilder.
+		WithChasis("alluminium").
+		WithGasEngine(true).
+		Build()
+	assert.False(t, car.Specs.ElectricalMotor)
+	assert.True(t, car.Specs.GasEngine)
 }
