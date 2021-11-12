@@ -5,7 +5,7 @@ type IBuilder interface {
 	WithGasEngine(isGas bool) IBuilder
 	WithElectricalMotor(isElectrical bool) IBuilder
 	WithMake(make string) IBuilder
-	WithSeats(seat int) IBuilder
+	WithSeats(seats int) IBuilder
 	Build() *Car
 }
 
@@ -20,12 +20,9 @@ func NewCar() CarBuilder {
 type CarBuilder struct {
 	make            string
 	chasis          string
+	seats           int
 	gasEngine       bool
 	electricalMotor bool
-}
-
-func (c *CarBuilder) WithSeats(seat int) IBuilder {
-	panic("implement me")
 }
 
 type Meta struct {
@@ -70,6 +67,11 @@ func (c *CarBuilder) WithMake(make string) IBuilder {
 	return c
 }
 
+func (c *CarBuilder) WithSeats(seats int) IBuilder {
+	c.seats = seats
+	return c
+}
+
 func (c *CarBuilder) Build() *Car {
 	return &Car{
 		Meta: Meta{
@@ -80,6 +82,7 @@ func (c *CarBuilder) Build() *Car {
 			Chasis:          c.chasis,
 			ElectricalMotor: c.electricalMotor,
 			GasEngine:       c.gasEngine,
+			Seats:           c.seats,
 		},
 		Make: c.make,
 	}
