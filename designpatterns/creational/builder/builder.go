@@ -17,19 +17,23 @@ type CarBuilder struct {
 }
 
 func (c *CarBuilder) WithSeats() IBuilder {
-	panic("implement me")
+	c.seats = 4
+	return c
 }
 
 func (c *CarBuilder) WithChasis() IBuilder {
-	panic("implement me")
+	c.chasis = "aluminium"
+	return c
 }
 
 func (c *CarBuilder) WithGasEngine() IBuilder {
-	panic("implement me")
+	c.gasEngine = false
+	return c
 }
 
 func (c *CarBuilder) WithElectricalMotor() IBuilder {
-	panic("implement me")
+	c.electricalMotor = true
+	return c
 }
 
 func (c *CarBuilder) WithWheels() IBuilder {
