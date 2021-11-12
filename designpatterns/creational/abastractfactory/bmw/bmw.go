@@ -1,7 +1,7 @@
 package bmw
 
 import (
-	"go-design-patterns/designpatterns/abastractfactory/interfaces"
+	"go-design-patterns/designpatterns/creational/abastractfactory/interfaces"
 )
 
 type BMW struct {

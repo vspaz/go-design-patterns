@@ -2,9 +2,9 @@ package abastractfactory
 
 import (
 	"fmt"
-	"go-design-patterns/designpatterns/abastractfactory/audi"
-	"go-design-patterns/designpatterns/abastractfactory/bmw"
-	"go-design-patterns/designpatterns/abastractfactory/interfaces"
+	"go-design-patterns/designpatterns/creational/abastractfactory/audi"
+	"go-design-patterns/designpatterns/creational/abastractfactory/bmw"
+	"go-design-patterns/designpatterns/creational/abastractfactory/interfaces"
 )
 
 type ICarFactory interface {
