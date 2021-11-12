@@ -6,6 +6,14 @@ type IBuilder interface {
 	WithElectricalMotor(isElectrical bool) IBuilder
 }
 
+func NewCar() CarBuilder {
+	return CarBuilder{
+		chasis:          "undef",
+		gasEngine:       false,
+		electricalMotor: false,
+	}
+}
+
 type CarBuilder struct {
 	chasis          string
 	gasEngine       bool
