@@ -62,6 +62,7 @@ func (c *CarBuilder) Build() *Car {
 		Specs: Specs{
 			Chasis:          c.chasis,
 			ElectricalMotor: c.electricalMotor,
+			GasEngine: c.gasEngine,
 		},
 		color: "red",
 	}

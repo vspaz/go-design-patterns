@@ -8,7 +8,7 @@ import (
 func TestBuilderOk(t *testing.T) {
 	carBuilder := NewCar()
 	car := carBuilder.
-		WithChasis("alluminium").
+		WithChasis("aluminium").
 		WithGasEngine(true).
 		Build()
 	assert.False(t, car.Specs.ElectricalMotor)
