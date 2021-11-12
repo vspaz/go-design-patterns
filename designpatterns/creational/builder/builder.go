@@ -5,6 +5,7 @@ type IBuilder interface {
 	WithGasEngine(isGas bool) IBuilder
 	WithElectricalMotor(isElectrical bool) IBuilder
 	WithMake(make string) IBuilder
+	WithSeats(seat int) IBuilder
 	Build() *Car
 }
 
@@ -21,6 +22,10 @@ type CarBuilder struct {
 	chasis          string
 	gasEngine       bool
 	electricalMotor bool
+}
+
+func (c *CarBuilder) WithSeats(seat int) IBuilder {
+	panic("implement me")
 }
 
 type Meta struct {
