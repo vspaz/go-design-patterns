@@ -1,6 +1,6 @@
 package prototype
 
 type inode interface {
-	GetInfo(string string)
+	GetInfo(string string) string
 	clone() inode
 }
