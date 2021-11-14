@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func generateTestData() (*Dir, *Dir) {
+func generateTestData() *Dir {
 	dir_1 := &Dir{
 		children: []Inode{&File{
 			name: "file_1",
@@ -24,28 +24,11 @@ func generateTestData() (*Dir, *Dir) {
 		},
 		name: "dir_2",
 	}
-	return dir_1, dir_2
+	return dir_2
 }
 
 func TestGetInfoOk(t *testing.T) {
-	dir_1 := &Dir{
-		children: []Inode{&File{
-			name: "file_1",
-		}},
-		name: "dir_1",
-	}
-	dir_2 := &Dir{
-		children: []Inode{
-			dir_1,
-			&File{
-				name: "file_2",
-			},
-			&File{
-				name: "file_3",
-			},
-		},
-		name: "dir_2",
-	}
+	dir_2 := generateTestData()
 	assert.Equal(
 		t,
 		"\ndir_2\ndir_1\nfile_1\nfile_2\nfile_3",
@@ -54,24 +37,7 @@ func TestGetInfoOk(t *testing.T) {
 }
 
 func TestCloneOk(t *testing.T) {
-	dir_1 := &Dir{
-		children: []Inode{&File{
-			name: "file_1",
-		}},
-		name: "dir_1",
-	}
-	dir_2 := &Dir{
-		children: []Inode{
-			dir_1,
-			&File{
-				name: "file_2",
-			},
-			&File{
-				name: "file_3",
-			},
-		},
-		name: "dir_2",
-	}
+	dir_2 := generateTestData()
 	assert.Equal(
 		t,
 		"\ndir_2_clone\ndir_1_clone\nfile_1_clone\nfile_2_clone\nfile_3_clone",

@@ -1,7 +1,6 @@
 package prototype
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -16,7 +15,6 @@ func (d *Dir) GetInfo(sep string) string {
 	for _, file := range d.children {
 		fileNames = append(fileNames, file.GetInfo(sep))
 	}
-	fmt.Println(fileNames)
 	return strings.Join(fileNames, "")
 }
 
