@@ -1,6 +1,9 @@
 package prototype
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 type Dir struct {
 	children []Inode
@@ -8,10 +11,12 @@ type Dir struct {
 }
 
 func (d *Dir) GetInfo(sep string) string {
-	fileNames := []string{sep + d.name}
+	var fileNames []string
+	fileNames = append(fileNames, sep + d.name)
 	for _, file := range d.children {
 		fileNames = append(fileNames, file.GetInfo(sep))
 	}
+	fmt.Println(fileNames)
 	return strings.Join(fileNames, "")
 }
 
