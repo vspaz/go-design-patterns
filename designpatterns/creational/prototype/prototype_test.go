@@ -5,6 +5,28 @@ import (
 	"testing"
 )
 
+func generateTestData() (*Dir, *Dir) {
+	dir_1 := &Dir{
+		children: []Inode{&File{
+			name: "file_1",
+		}},
+		name: "dir_1",
+	}
+	dir_2 := &Dir{
+		children: []Inode{
+			dir_1,
+			&File{
+				name: "file_2",
+			},
+			&File{
+				name: "file_3",
+			},
+		},
+		name: "dir_2",
+	}
+	return dir_1, dir_2
+}
+
 func TestGetInfoOk(t *testing.T) {
 	dir_1 := &Dir{
 		children: []Inode{&File{
