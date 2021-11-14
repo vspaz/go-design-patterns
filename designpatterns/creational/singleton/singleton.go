@@ -11,7 +11,7 @@ type single struct {
 
 var Singleton *single
 
-func getSingleton() *single {
+func GetSingleton() *single {
 	if Singleton == nil {
 		once.Do(
 			func() {
