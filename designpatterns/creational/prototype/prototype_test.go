@@ -24,7 +24,11 @@ func TestGetInfoOk(t *testing.T) {
 		},
 		name: "dir_2",
 	}
-	assert.Equal(t, "\ndir_2\ndir_1\nfile_1\nfile_2\nfile_3", dir_2.GetInfo("\n"))
+	assert.Equal(
+		t,
+		"\ndir_2\ndir_1\nfile_1\nfile_2\nfile_3",
+		dir_2.GetInfo("\n"),
+	)
 }
 
 func TestCloneOk(t *testing.T) {

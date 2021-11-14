@@ -12,7 +12,7 @@ type Dir struct {
 
 func (d *Dir) GetInfo(sep string) string {
 	var fileNames []string
-	fileNames = append(fileNames, sep + d.name)
+	fileNames = append(fileNames, sep+d.name)
 	for _, file := range d.children {
 		fileNames = append(fileNames, file.GetInfo(sep))
 	}
