@@ -1,5 +1,5 @@
 package composite
 
 type Component interface {
-	search(string) string
+	Search(string) string
 }
