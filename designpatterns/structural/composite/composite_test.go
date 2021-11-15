@@ -18,6 +18,6 @@ func TestDirSearchOk(t *testing.T) {
 	dir_2.Add(file_3)
 	dir_2.Add(dir_1)
 
-	assert.Equal(t, "found", dir_2.Search("file_1"))
-	assert.NotEqual(t, "found", dir_2.Search("file_5"))
+	assert.True(t, dir_2.Search("file_1"))
+	assert.False(t, dir_2.Search("non existing file"))
 }

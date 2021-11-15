@@ -5,14 +5,14 @@ type Dir struct {
 	components []Component
 }
 
-func (d *Dir) Search(word string) string {
+func (d *Dir) Search(word string) bool {
 	for _, composite := range d.components {
-		matched := composite.Search(word)
-		if matched == "found" {
-			return "found"
+		isMatched := composite.Search(word)
+		if isMatched {
+			return true
 		}
 	}
-	return "not found"
+	return false
 }
 
 func (d *Dir) Add(component Component) {
