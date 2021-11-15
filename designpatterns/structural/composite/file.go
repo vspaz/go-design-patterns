@@ -1,13 +1,14 @@
 package composite
 
-import "fmt"
-
 type File struct {
 	name string
 }
 
 func (f *File) Search(word string) string {
-	return fmt.Sprintf("searching for word '%s' in file '%s'", word, f.name)
+	if word == f.name {
+		return "found"
+	}
+	return "not found"
 }
 
 func (f *File) GetName() string {
