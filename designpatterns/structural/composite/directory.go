@@ -6,7 +6,7 @@ type Dir struct {
 
 func (d *Dir) Search(word string) string {
 	for _, composite := range d.components {
-		found := composite.search(word)
+		found := composite.Search(word)
 		if found != "" {
 			return found
 		}
