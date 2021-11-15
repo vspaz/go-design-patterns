@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestDirSearch(t *testing.T) {
+func TestDirSearchOk(t *testing.T) {
 	file_1 := &File{name: "file_1"}
 	file_2 := &File{name: "file_2"}
 	file_3 := &File{name: "file_3"}
@@ -19,4 +19,5 @@ func TestDirSearch(t *testing.T) {
 	dir_2.Add(dir_1)
 
 	assert.Equal(t, "found", dir_2.Search("file_1"))
+	assert.NotEqual(t, "found", dir_2.Search("file_5"))
 }

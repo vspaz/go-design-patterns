@@ -1,15 +1,15 @@
 package composite
 
 type Dir struct {
-	name string
+	name       string
 	components []Component
 }
 
 func (d *Dir) Search(word string) string {
 	for _, composite := range d.components {
-		found := composite.Search(word)
-		if found == "found" {
-			return found
+		matched := composite.Search(word)
+		if matched == "found" {
+			return "found"
 		}
 	}
 	return "not found"
