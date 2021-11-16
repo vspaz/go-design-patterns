@@ -3,11 +3,11 @@ package adapter
 import "fmt"
 
 type Legacy interface {
-	Decode(body string) string
+	QuerySoap() string
 }
 
-type Soap struct {}
+type Soap struct{}
 
-func (s *Soap) Decode(body string) string {
-	return fmt.Sprintf("body decoded: %v", body)
+func (s *Soap) QuerySoap() string {
+	return fmt.Sprintf("received response")
 }
