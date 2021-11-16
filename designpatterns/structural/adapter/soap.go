@@ -1,7 +1,5 @@
 package adapter
 
-import "fmt"
-
 type Legacy interface {
 	QuerySoap() string
 }
@@ -9,5 +7,5 @@ type Legacy interface {
 type Soap struct{}
 
 func (s *Soap) QuerySoap() string {
-	return fmt.Sprintf("received response")
+	return "making SOAP requests"
 }

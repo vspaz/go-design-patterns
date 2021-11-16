@@ -1,5 +1,7 @@
 package adapter
 
-type Rest interface {
-	Get() string
+type Rest struct{}
+
+func (r *Rest) Get() string {
+	return "making REST request"
 }
