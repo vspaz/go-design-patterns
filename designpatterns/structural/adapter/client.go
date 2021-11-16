@@ -1,5 +1,9 @@
 package adapter
 
-func Get(client Rest) string {
+type IClient interface {
+	Get() string
+}
+
+func Get(client IClient) string {
 	return client.Get()
 }
