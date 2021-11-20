@@ -2,9 +2,9 @@ package bridge
 
 import "fmt"
 
-type ConsolePrinter struct{}
+type ConsoleWriter struct{}
 
-func (c *ConsolePrinter) PrintText(text string) error {
+func (c *ConsoleWriter) Flush(text string) error {
 	fmt.Printf("consolePrinter: %s", text)
 	return nil
 }

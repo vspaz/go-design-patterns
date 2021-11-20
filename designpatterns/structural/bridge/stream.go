@@ -10,7 +10,7 @@ type DataStreamWriter struct {
 	Writer io.Writer
 }
 
-func (d *DataStreamWriter) PrintText(text string) error {
+func (d *DataStreamWriter) Flush(text string) error {
 	if d.Writer == nil {
 		return errors.New("io.Writer not set")
 	}
