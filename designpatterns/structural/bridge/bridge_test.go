@@ -1,9 +1,15 @@
 package bridge
 
 import (
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
-func TestDataStreamWriterOk(t *testing.T) {
+func TestConsoleWriter_Flush(t *testing.T) {
+	writer := Writer{
+		Text:    "some text goes here",
+		Printer: &ConsoleWriter{},
+	}
 
+	assert.Nil(t, writer.Flush())
 }
