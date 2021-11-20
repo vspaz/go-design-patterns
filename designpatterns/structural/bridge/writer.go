@@ -1,12 +1,10 @@
 package bridge
 
-import "errors"
-
 type Writer struct {
-	Text   string
+	Text    string
 	Printer IWriter
 }
 
-func (w *Writer) Print() error {
-	return errors.New("not implemented yet")
+func (w *Writer) Flush() error {
+	return w.Printer.Flush(w.Text)
 }
