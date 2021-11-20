@@ -10,7 +10,6 @@ func TestConsoleWriter_Flush(t *testing.T) {
 		Text:    "some text goes here",
 		Printer: &ConsoleWriter{},
 	}
-
 	assert.Nil(t, writer.Flush())
 }
 
@@ -19,9 +18,7 @@ func TestDataStreamWriter_Flush(t *testing.T) {
 		Text:    "some text goes here",
 		Printer: &DataStreamWriter{},
 	}
-
 	assert.Error(t, writer.Flush())
-
 	writer.Printer = &DataStreamWriter{
 		Writer: &CustomWriter{},
 	}
