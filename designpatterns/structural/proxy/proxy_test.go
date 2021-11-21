@@ -11,13 +11,24 @@ const (
 	userEndpoint   = "/api/v1/user"
 )
 
-func TestProxyServer(t *testing.T) {
+func TestStatusGetHandler(t *testing.T) {
 	proxyServer := NewProxyServer(1)
 	statusCode, response := proxyServer.handleRequest(statusEndpoint, "GET")
 	assert.Equal(t, http.StatusOK, statusCode)
 	assert.Equal(t, "Ok", response)
 
 	statusCode, response = proxyServer.handleRequest(statusEndpoint, "GET")
+	assert.Equal(t, http.StatusTooManyRequests, statusCode)
+	assert.Equal(t, "Too many requests", response)
+}
+
+func TestUserPostHandler(t *testing.T) {
+	proxyServer := NewProxyServer(1)
+	statusCode, response := proxyServer.handleRequest(userEndpoint, "POST")
+	assert.Equal(t, http.StatusAccepted, statusCode)
+	assert.Equal(t, "Accepted", response)
+
+	statusCode, response = proxyServer.handleRequest(userEndpoint, "POST")
 	assert.Equal(t, http.StatusTooManyRequests, statusCode)
 	assert.Equal(t, "Too many requests", response)
 }
