@@ -12,8 +12,12 @@ const (
 )
 
 func TestProxyServer(t *testing.T) {
-	proxyServer := NewProxyServer(2)
+	proxyServer := NewProxyServer(1)
 	statusCode, response := proxyServer.handleRequest(statusEndpoint, "GET")
 	assert.Equal(t, http.StatusOK, statusCode)
 	assert.Equal(t, "Ok", response)
+
+	statusCode, response = proxyServer.handleRequest(statusEndpoint, "GET")
+	assert.Equal(t, http.StatusTooManyRequests, statusCode)
+	assert.Equal(t, "Too many requests", response)
 }
