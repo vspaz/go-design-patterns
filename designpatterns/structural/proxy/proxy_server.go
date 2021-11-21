@@ -13,3 +13,8 @@ func NewProxyServer() *ProxyServer {
 		RateLimiter:  make(map[string]int),
 	}
 }
+
+func (p *ProxyServer) isRequestLimitHit(endpoint string) bool {
+	p.RateLimiter[endpoint]++
+	return p.RateLimiter[endpoint] > p.RequestCount
+}
