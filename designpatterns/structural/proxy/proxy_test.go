@@ -55,3 +55,14 @@ func TestUndefinedEndpoint(t *testing.T) {
 	assert.Equal(t, http.StatusTooManyRequests, statusCode)
 	assert.Equal(t, "Too many requests", response)
 }
+
+func TestDifferentRequests(t *testing.T) {
+	proxyServer := NewProxyServer(1)
+	statusCode, response := proxyServer.handleRequest(statusEndpoint, "GET")
+	assert.Equal(t, http.StatusOK, statusCode)
+	assert.Equal(t, "Ok", response)
+
+	statusCode, response = proxyServer.handleRequest(userEndpoint, "POST")
+	assert.Equal(t, http.StatusAccepted, statusCode)
+	assert.Equal(t, "Accepted", response)
+}
