@@ -8,10 +8,10 @@ type ProxyServer struct {
 	RateLimiter  map[string]int
 }
 
-func NewProxyServer() *ProxyServer {
+func NewProxyServer(requestLimit int) *ProxyServer {
 	return &ProxyServer{
 		AppServer:    &WebApp{},
-		RequestCount: 5,
+		RequestCount: requestLimit,
 		RateLimiter:  make(map[string]int),
 	}
 }
