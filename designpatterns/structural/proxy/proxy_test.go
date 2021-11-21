@@ -32,3 +32,15 @@ func TestUserPostHandler(t *testing.T) {
 	assert.Equal(t, http.StatusTooManyRequests, statusCode)
 	assert.Equal(t, "Too many requests", response)
 }
+
+func TestUnsupportedMethod(t *testing.T) {
+	proxyServer := NewProxyServer(1)
+	statusCode, response := proxyServer.handleRequest(userEndpoint, "HEAD")
+	assert.Equal(t, http.StatusBadRequest, statusCode)
+	assert.Equal(t, "Bad request", response)
+
+	statusCode, response = proxyServer.handleRequest(userEndpoint, "POST")
+	assert.Equal(t, http.StatusTooManyRequests, statusCode)
+	assert.Equal(t, "Too many requests", response)
+
+}
