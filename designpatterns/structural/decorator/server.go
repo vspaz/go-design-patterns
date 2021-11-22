@@ -1,7 +1,7 @@
 package decorator
 
 type IRequest interface {
-	DoRequest(string) string
+	DoRequest() string
 }
 
 type Request struct{}

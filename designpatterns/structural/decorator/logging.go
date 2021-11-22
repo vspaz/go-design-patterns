@@ -1,7 +1,7 @@
 package decorator
 
 type LoggedRequest struct {
-	Request Request
+	Request IRequest
 }
 
 func (l *LoggedRequest) DoRequest() string {

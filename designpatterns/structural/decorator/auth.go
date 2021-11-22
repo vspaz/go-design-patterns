@@ -1,7 +1,7 @@
 package decorator
 
 type Auth struct {
-	Request Request
+	Request IRequest
 }
 
 func (a *Auth) DoRequest() string {
