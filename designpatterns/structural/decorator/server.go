@@ -7,5 +7,5 @@ type IRequest interface {
 type Request struct{}
 
 func (r *Request) DoRequest() string {
-	return "do request"
+	return "do request; "
 }

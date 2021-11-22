@@ -1,7 +1,7 @@
 package decorator
 
 type ProfileRequest struct {
-	Request Request
+	Request *Request
 }
 
 func (p *ProfileRequest) DoRequest() string {
