@@ -5,5 +5,5 @@ type Auth struct {
 }
 
 func (a *Auth) DoRequest() string {
-	return "request authenticated; " + a.DoRequest()
+	return "request authenticated; " + a.Request.DoRequest()
 }
