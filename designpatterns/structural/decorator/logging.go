@@ -5,5 +5,5 @@ type LoggedRequest struct {
 }
 
 func (l *LoggedRequest) DoRequest() string {
-	return "received request" + l.DoRequest()
+	return "2006-02-08 22:20:02,165: " + l.Request.DoRequest()
 }
