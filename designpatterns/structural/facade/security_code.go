@@ -9,3 +9,7 @@ func NewSecurityCode(code int) *SecurityCode {
 		Code: code,
 	}
 }
+
+func (s *SecurityCode) IsAuthorizationCodeCorrect(code int) bool {
+	return s.Code == code
+}
