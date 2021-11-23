@@ -1,7 +1,6 @@
 package facade
 
 import (
-	"errors"
 	"fmt"
 )
 
@@ -20,10 +19,10 @@ func (w *Wallet) Add(amount int) string {
 	return fmt.Sprintf("'%d' added to account", amount)
 }
 
-func (w *Wallet) Withdraw(amount int) error {
+func (w *Wallet) Withdraw(amount int) string {
 	if w.Balance < amount {
-		return errors.New("insufficient funds")
+		return "insufficient funds"
 	}
 	w.Balance -= amount
-	return nil
+	return "transaction successful;"
 }

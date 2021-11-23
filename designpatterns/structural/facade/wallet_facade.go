@@ -46,5 +46,5 @@ func (w *WalletFacade) Withdraw(accountId string, securityCode int, amount int) 
 	operation_1 := w.Wallet.Withdraw(amount)
 	operation_2 := w.Notification.NotifyWithdrawalTransaction()
 	operation_3 := w.Ledger.AddNewEntry(accountId, "withdrawal", amount)
-	return strings.Join([]string{operation_1.Error(), operation_2, operation_3}, " ")
+	return strings.Join([]string{operation_1, operation_2, operation_3}, " ")
 }

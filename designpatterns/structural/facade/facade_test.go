@@ -12,4 +12,8 @@ func TestFacadeOk(t *testing.T) {
 		"'500' added to account deposit transaction took place new entry for account id 'noname'; transaction type 'deposit'; amount 500",
 		transactionResult)
 
+	transactionResult = walletFacade.Withdraw("noname", 12345, 200)
+	assert.Equal(t,
+		"transaction successful; withdrawal transaction took place new entry for account id 'noname'; transaction type 'withdrawal'; amount 200",
+		transactionResult)
 }
