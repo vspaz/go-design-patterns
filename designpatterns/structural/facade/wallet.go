@@ -17,7 +17,7 @@ func NewWallet() *Wallet {
 
 func (w *Wallet) Add(amount int) string {
 	w.Balance += amount
-	return fmt.Sprintf("'%f' added to account")
+	return fmt.Sprintf("'%d' added to account", amount)
 }
 
 func (w *Wallet) Withdraw(amount int) error {

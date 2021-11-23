@@ -25,7 +25,7 @@ func NewWalletFacade(accountId string, code int) *WalletFacade {
 
 func (w *WalletFacade) Deposit(accountId string, securityCode int, amount int) string {
 	if !w.Account.IsValid(accountId) {
-		return fmt.Sprintf("account '%s' does not exist")
+		return fmt.Sprintf("account '%s' does not exist", accountId)
 	}
 	if !w.SecurityCode.IsAuthorizationCodeCorrect(securityCode) {
 		return fmt.Sprintf("security code invalid")
@@ -38,7 +38,7 @@ func (w *WalletFacade) Deposit(accountId string, securityCode int, amount int) s
 
 func (w *WalletFacade) Withdraw(accountId string, securityCode int, amount int) string {
 	if !w.Account.IsValid(accountId) {
-		return fmt.Sprintf("account '%s' does not exist")
+		return fmt.Sprintf("account '%s' does not exist", accountId)
 	}
 	if !w.SecurityCode.IsAuthorizationCodeCorrect(securityCode) {
 		return fmt.Sprintf("security code invalid")
