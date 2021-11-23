@@ -3,6 +3,10 @@ package facade
 type Notification struct {
 }
 
+func NewNotification() *Notification {
+	return &Notification{}
+}
+
 func (n *Notification) NotifyDepositTransaction() string {
 	return "deposit transaction took place"
 }
