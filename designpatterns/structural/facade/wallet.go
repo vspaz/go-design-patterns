@@ -1,5 +1,10 @@
 package facade
 
+import (
+	"errors"
+	"fmt"
+)
+
 type Wallet struct {
 	Balance int
 }
@@ -10,6 +15,15 @@ func NewWallet() *Wallet {
 	}
 }
 
-func (w *Wallet) Add(amount int) {
+func (w *Wallet) Add(amount int) string {
 	w.Balance += amount
+	return fmt.Sprintf("'%f' added to account")
+}
+
+func (w *Wallet) Withdraw(amount int) error {
+	if w.Balance < amount {
+		return errors.New("insufficient funds")
+	}
+	w.Balance -= amount
+	return nil
 }
