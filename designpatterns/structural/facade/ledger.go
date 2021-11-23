@@ -9,3 +9,7 @@ func NewAccount(accountName string) *Account {
 		Name: accountName,
 	}
 }
+
+func (a *Account) IsValid(accountName string) bool {
+	return a.Name == accountName
+}
