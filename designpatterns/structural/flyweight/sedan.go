@@ -6,7 +6,7 @@ type Sedan struct {
 	carType string
 }
 
-func NewSedan(carType string) *Sedan {
+func NewSedan(carType string) IVehicle {
 	return &Sedan{
 		carType: carType,
 	}

@@ -6,7 +6,7 @@ type Suv struct {
 	carType string
 }
 
-func NewSuv(carType string) *Suv {
+func NewSuv(carType string) IVehicle {
 	return &Suv{
 		carType: carType,
 	}
