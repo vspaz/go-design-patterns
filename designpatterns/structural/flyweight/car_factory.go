@@ -8,6 +8,12 @@ type CarFactory struct {
 	typeToVehicle map[string]IVehicle
 }
 
+func NewCarFactory() *CarFactory {
+	return &CarFactory{
+		typeToVehicle: make(map[string]IVehicle),
+	}
+}
+
 func (c *CarFactory) GetCar(carType string) IVehicle {
 	car, _ := c.typeToVehicle[carType]
 	if car != nil {
