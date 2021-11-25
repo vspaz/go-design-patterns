@@ -33,3 +33,9 @@ func (t *Teams) GetTeam(teamId int) *Team {
 func (t *Teams) GetObjectCount() int {
 	return len(t.idToTeams)
 }
+
+func NewTeamFactory() Teams {
+	return Teams{
+		idToTeams: make(map[int]*Team),
+	}
+}
