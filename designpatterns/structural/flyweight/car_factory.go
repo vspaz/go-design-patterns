@@ -5,11 +5,11 @@ import (
 )
 
 type CarFactory struct {
-	nameToVehicle map[string]IVehicle
+	typeToVehicle map[string]IVehicle
 }
 
 func (c *CarFactory) GetCar(carType string) IVehicle {
-	car, _ := c.nameToVehicle[carType]
+	car, _ := c.typeToVehicle[carType]
 	if car != nil {
 		return car
 	}
@@ -24,5 +24,10 @@ func (c *CarFactory) GetCar(carType string) IVehicle {
 	default:
 		log.Fatalf("unknown type '%s' \n", carType)
 	}
+	c.typeToVehicle[carType] = car
 	return car
+}
+
+func (c *CarFactory) GetCarCount() int {
+	return len(c.typeToVehicle)
 }
