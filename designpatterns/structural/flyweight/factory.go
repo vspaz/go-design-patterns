@@ -29,3 +29,7 @@ func (t *Teams) GetTeam(teamId int) *Team {
 	t.idToTeams[teamId] = getTeam(teamId)
 	return team
 }
+
+func (t *Teams) GetObjectCount() int {
+	return len(t.idToTeams)
+}
