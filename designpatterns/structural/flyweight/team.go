@@ -18,3 +18,8 @@ type Game struct {
 	LocalShoots   uint64
 	VisitorShoots uint64
 }
+
+type HistoricalData struct {
+	Year         uint64
+	LegueResults []Game
+}
