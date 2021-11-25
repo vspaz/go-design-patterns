@@ -14,7 +14,7 @@ func TestIteratorOk(t *testing.T) {
 				Age:  30,
 			},
 			{
-				Name: "anynymous",
+				Name: "anonymous",
 				Age:  10,
 			},
 		},
