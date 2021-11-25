@@ -23,3 +23,10 @@ type HistoricalData struct {
 	Year         uint64
 	LegueResults []Game
 }
+
+type Team struct {
+	Id      uint64
+	Name    string
+	Shield  []byte
+	Players []Player
+}
