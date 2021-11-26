@@ -1,5 +1,7 @@
 package strategy
 
+import "fmt"
+
 type Cache struct {
 	Storage        map[string]string
 	EvictionPolicy evictionPolicy
@@ -26,10 +28,11 @@ func (c *Cache) evict() {
 	c.Capacity--
 }
 
-func (c *Cache) Add(key string, value string) {
+func (c *Cache) Add(key string, value string) string {
 	if c.Capacity == c.MaxCapacity {
 		c.evict()
 	}
+	return fmt.Sprintf("%s", c.Capacity)
 }
 
 func (c *Cache) Get(key string) {
