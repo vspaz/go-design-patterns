@@ -39,12 +39,9 @@ type Specs struct {
 }
 
 type Car struct {
-	Meta     Meta
-	Specs    Specs
-	color    string
-	maxSpeed string
-	price    float64
-	Make     string
+	Meta  Meta
+	Specs Specs
+	Make  string
 }
 
 func (c *CarBuilder) WithChasis(chasis string) IBuilder {

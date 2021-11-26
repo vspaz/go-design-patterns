@@ -15,7 +15,7 @@ func NewCarFactory() *CarFactory {
 }
 
 func (c *CarFactory) GetCar(carType string) IVehicle {
-	car, _ := c.typeToVehicle[carType]
+	var car, _ = c.typeToVehicle[carType]
 	if car != nil {
 		return car
 	}

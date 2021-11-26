@@ -32,7 +32,7 @@ func (c *Cache) Add(key string, value string) string {
 	if c.Capacity == c.MaxCapacity {
 		c.evict()
 	}
-	return fmt.Sprintf("%s", c.Capacity)
+	return fmt.Sprintf("%d", c.Capacity)
 }
 
 func (c *Cache) Get(key string) {
