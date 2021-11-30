@@ -1,8 +1,8 @@
 package middleware
 
-type Request struct {}
+type Request struct{}
 
 type Middleware interface {
-	Process(*Request)
+	Process(*Request) string
 	SetNext(Middleware)
 }
