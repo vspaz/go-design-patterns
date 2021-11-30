@@ -29,12 +29,16 @@ func (c *Cache) evict() {
 }
 
 func (c *Cache) Add(key string, value string) string {
-	if c.Capacity == c.MaxCapacity {
+	if c.Capacity >= c.MaxCapacity {
 		c.evict()
 	}
+	c.Capacity++
+	c.Storage[key] = value
 	return fmt.Sprintf("%d", c.Capacity)
 }
 
-func (c *Cache) Get(key string) {
+func (c *Cache) Get(key string) string {
+	value, _ := c.Storage[key]
 	delete(c.Storage, key)
+	return value
 }

@@ -1,10 +1,14 @@
 package strategy
 
-import "testing"
+import (
+	"github.com/stretchr/testify/assert"
+	"testing"
+)
 
 func TestCache(t *testing.T) {
 	lruPolicy := &Lru{}
-	lruCache := initCache(lruPolicy)
-	lruCache.Add("a", "a")
-	lruCache.Add("b", "b")
+	cache := initCache(lruPolicy)
+	cache.Add("a", "a")
+	cache.Add("b", "b")
+	assert.Equal(t, "a", cache.Get("a"))
 }
