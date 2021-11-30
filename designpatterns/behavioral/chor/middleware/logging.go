@@ -9,9 +9,10 @@ type Logging struct {
 	next Middleware
 }
 
-func (l *Logging) Process(r *Request) {
+func (l *Logging) Process(r *Request) string {
 	log.Printf(" %s: request received", time.Now().Format("2006-01-02 15:04:05.000"))
-	l.next.Process(r)
+	ret := l.next.Process(r)
+	return "request logged; " + ret
 }
 
 func (l *Logging) SetNext(next Middleware) {

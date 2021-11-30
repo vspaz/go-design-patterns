@@ -6,6 +6,6 @@ type Request struct {
 }
 
 type Middleware interface {
-	Process(r *Request)
+	Process(r *Request) string
 	SetNext(Middleware)
 }

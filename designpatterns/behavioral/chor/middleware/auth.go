@@ -5,12 +5,12 @@ type Auth struct {
 	AllowedUsers map[string]bool
 }
 
-func (a *Auth) Process(r *Request) {
+func (a *Auth) Process(r *Request) string {
 	if _, hasUser := a.AllowedUsers[r.User]; hasUser {
-		a.next.Process(r)
+		return "request authenticated"
 	}
 	r.IsAuthenticated = false
-	a.next.Process(r)
+	return "request unauthorized"
 }
 
 func (a *Auth) SetNext(next Middleware) {

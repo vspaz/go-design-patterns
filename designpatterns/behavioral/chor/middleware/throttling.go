@@ -1,7 +1,6 @@
 package middleware
 
 import (
-	"log"
 	"time"
 )
 
@@ -12,7 +11,7 @@ type Throttling struct {
 	next         Middleware
 }
 
-func (t *Throttling) Process(r *Request) {
+func (t *Throttling) Process(r *Request) string {
 	if time.Now().Second() > t.CurrentTime.Second()+60 {
 		t.requestCount = 0
 		t.CurrentTime = time.Now()
@@ -20,9 +19,10 @@ func (t *Throttling) Process(r *Request) {
 	t.requestCount++
 
 	if t.requestCount < t.rpsLimit {
-		log.Println("rps limit exceeded")
+		return "rps limit exceeded; "
 	}
-	t.next.Process(r)
+	ret := t.next.Process(r)
+	return "checked if rps limit exceeded; " + ret
 }
 
 func (t *Throttling) SetNext(next Middleware) {

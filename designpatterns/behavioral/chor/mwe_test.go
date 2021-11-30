@@ -1,6 +1,7 @@
 package chor
 
 import (
+	"github.com/stretchr/testify/assert"
 	"go-design-patterns/designpatterns/behavioral/chor/middleware"
 	"testing"
 	"time"
@@ -22,5 +23,8 @@ func TestMiddlewareOk(t *testing.T) {
 	}
 	throttlignMwe.SetNext(authMwe)
 	loggingMwe.SetNext(throttlignMwe)
-	loggingMwe.Process(req)
+	assert.Equal(t,
+		"request logged; checked if rps limit exceeded; request authenticated",
+		loggingMwe.Process(req),
+	)
 }
