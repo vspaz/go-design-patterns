@@ -11,4 +11,5 @@ func TestCache(t *testing.T) {
 	cache.Add("a", "a")
 	cache.Add("b", "b")
 	assert.Equal(t, "a", cache.Get("a"))
+	cache.setEvictionPolicy(&Lifo{})
 }
