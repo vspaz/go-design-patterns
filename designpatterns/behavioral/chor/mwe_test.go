@@ -8,23 +8,20 @@ import (
 )
 
 func TestMiddlewareOk(t *testing.T) {
-	req := &middleware.Request{
-		IsAuthenticated: false,
-		User:            "john.doe@example.com",
-	}
-
-	loggingMwe := &middleware.Logging{}
 	authMwe := &middleware.Auth{
 		AllowedUsers: map[string]bool{"john.doe@example.com": true},
 	}
-
-	throttlignMwe := &middleware.Throttling{
+	throttlingMwe := &middleware.Throttling{
 		CurrentTime: time.Now(),
 	}
-	throttlignMwe.SetNext(authMwe)
-	loggingMwe.SetNext(throttlignMwe)
+	throttlingMwe.SetNext(authMwe)
+	loggingMwe := &middleware.Logging{}
+	loggingMwe.SetNext(throttlingMwe)
 	assert.Equal(t,
 		"request logged; checked if rps limit exceeded; request authenticated",
-		loggingMwe.Process(req),
+		loggingMwe.Process(&middleware.Request{
+			IsAuthenticated: false,
+			User:            "john.doe@example.com",
+		}),
 	)
 }
