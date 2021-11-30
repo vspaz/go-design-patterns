@@ -14,6 +14,6 @@ func (l *Logging) Process(r *Request) {
 	l.next.Process(r)
 }
 
-func (l *Logging) setNext(next Middleware) {
+func (l *Logging) SetNext(next Middleware) {
 	l.next = next
 }

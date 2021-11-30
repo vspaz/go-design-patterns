@@ -1,11 +1,11 @@
 package middleware
 
 type Request struct {
-	user            string
+	User            string
 	IsAuthenticated bool
 }
 
 type Middleware interface {
-	Process(*Request) string
+	Process(r *Request)
 	SetNext(Middleware)
 }

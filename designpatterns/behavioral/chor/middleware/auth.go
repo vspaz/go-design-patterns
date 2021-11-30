@@ -2,11 +2,11 @@ package middleware
 
 type Auth struct {
 	next         Middleware
-	allowedUsers map[string]string
+	AllowedUsers map[string]bool
 }
 
 func (a *Auth) Process(r *Request) {
-	if _, hasUser := a.allowedUsers[r.user]; hasUser {
+	if _, hasUser := a.AllowedUsers[r.User]; hasUser {
 		a.next.Process(r)
 	}
 	r.IsAuthenticated = false
