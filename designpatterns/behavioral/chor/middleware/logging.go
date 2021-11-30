@@ -10,7 +10,7 @@ type Logging struct {
 }
 
 func (l *Logging) Process(r *Request) string {
-	log.Printf(" %s: request received", time.Now().Format("2006-01-02 15:04:05.000"))
+	log.Printf("%s: request received\n", time.Now().Format("2006-01-02 15:04:05.000"))
 	ret := l.next.Process(r)
 	return "request logged; " + ret
 }
