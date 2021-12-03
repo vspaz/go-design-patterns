@@ -7,3 +7,7 @@ type Invoker struct {
 func (i *Invoker) SetCommand(command ICommand) {
 	i.command = command
 }
+
+func (i *Invoker) RunCommand(command ICommand) string {
+	return command.RunCommand()
+}
