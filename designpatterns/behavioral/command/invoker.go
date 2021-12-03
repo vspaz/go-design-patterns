@@ -8,6 +8,6 @@ func (i *Invoker) SetCommand(command ICommand) {
 	i.command = command
 }
 
-func (i *Invoker) RunCommand(command ICommand) string {
-	return command.RunCommand()
+func (i *Invoker) RunCommand() string {
+	return i.command.RunCommand()
 }
