@@ -1,13 +1,13 @@
 package command
 
 type Undo struct {
-	Receiver Receiver
+	receiver Receiver
 }
 
 func (u *Undo) Undo(receiver Receiver) {
-	u.Receiver = receiver
+	u.receiver = receiver
 }
 
 func (u *Undo) RunCommand() string {
-	return u.Receiver.RunUndo()
+	return u.receiver.RunUndo()
 }

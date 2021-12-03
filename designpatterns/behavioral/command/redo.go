@@ -1,13 +1,13 @@
 package command
 
 type Redo struct {
-	Receiver Receiver
+	receiver Receiver
 }
 
 func (r *Redo) Redo(receiver Receiver) {
-	r.Receiver = receiver
+	r.receiver = receiver
 }
 
 func (r *Redo) RunCommand() string {
-	return r.Receiver.RunRedo()
+	return r.receiver.RunRedo()
 }
