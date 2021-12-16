@@ -8,7 +8,7 @@ func (t *Tea) PrepareRecipe() string {
 }
 
 func (t *Tea) SteepTeaBag() string {
-	return "tea bag steeped"
+	return "tea bag steeped; "
 }
 
 func (t *Tea) AddLemon() string {

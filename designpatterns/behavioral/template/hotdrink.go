@@ -15,3 +15,7 @@ func (h *HotDrink) BoilWater() string {
 func (h *HotDrink) PourInCup() string {
 	return "poured in cup"
 }
+
+func (h *HotDrink) PrepareRecipe() string {
+	return h.Drink.PrepareRecipe()
+}
