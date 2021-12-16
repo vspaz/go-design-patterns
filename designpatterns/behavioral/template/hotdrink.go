@@ -1,6 +1,7 @@
 package template
 
 type AbstractDrink interface {
+	PrepareRecipe() string
 }
 
 type HotDrink struct {
