@@ -7,7 +7,7 @@ func (c *Coffee) PrepareRecipe() string {
 }
 
 func (c *Coffee) BrewCoffee() string {
-	return "coffee brewed"
+	return "coffee brewed; "
 }
 
 func (c *Coffee) AddSugarAndMilk() string {
