@@ -1,7 +1,8 @@
 package template
 
-type HotDrink interface {
-	PrepareRecipe() string
-	BoilWatter() string
-	AddWatter() string
+type AbstractDrink interface {
+}
+
+type HotDrink struct {
+	Drink AbstractDrink
 }
