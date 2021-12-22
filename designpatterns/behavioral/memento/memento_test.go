@@ -16,4 +16,6 @@ func TestMementoOk(t *testing.T) {
 	originator.SetState("off")
 	assert.Equal(t, "off", originator.GetState())
 
+	originator.Restore(memento)
+	assert.Equal(t, "on", originator.GetState())
 }
